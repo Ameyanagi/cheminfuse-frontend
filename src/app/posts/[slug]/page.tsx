@@ -49,7 +49,8 @@ const PostPage = (props: any) => {
                             className="rounded-t-3xl object-cover m-auto opacity-50"
                             alt={post.data.title}
                         />
-                        <h1 className='relative flex justify-center text-white opacity-100 items-center w-full h-[30vh] '>{post.data.title}</h1>
+                        <h1 className='relative flex justify-center text-white opacity-100 items-center w-full h-[20vh] mx-auto p-10'>{post.data.title}</h1>
+                        <h2 className='relative flex justify-center text-white opacity-100 items-center'>{post.data.date}</h2>
                     </div>
 
                     <div className='p-5'>
