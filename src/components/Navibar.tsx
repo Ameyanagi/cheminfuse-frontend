@@ -64,10 +64,10 @@ const Navibar = () => {
 
                     <div className="py-4 flex flex-col">
                         <ul className="uppercase">
-                            <Link href="/"><li className="py-4 text-xl hover:border-b">About</li></Link>
-                            <Link href="/tools"><li className="py-4 text-xl hover:border-b">Tools</li></Link>
-                            <Link href="/blog/1"><li className="py-4 text-xl hover:border-b">Blog</li></Link>
-                            <Link href="/contact"><li className="py-4 text-xl hover:border-b">Contact</li></Link>
+                            <Link onClick={handleNav} href="/"><li className="py-4 text-xl hover:border-b">About</li></Link>
+                            <Link onClick={handleNav} href="/tools"><li className="py-4 text-xl hover:border-b">Tools</li></Link>
+                            <Link onClick={handleNav} href="/blog/1"><li className="py-4 text-xl hover:border-b">Blog</li></Link>
+                            <Link onClick={handleNav} href="/contact"><li className="py-4 text-xl hover:border-b">Contact</li></Link>
                         </ul>
                         <div className="pt-40">
                             <p className="uppercase tracking-widest">Let's Connect</p>
