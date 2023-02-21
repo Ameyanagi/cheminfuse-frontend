@@ -24,7 +24,7 @@ const Navibar = () => {
             <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
                 <Link href="/">
                     <Image
-                        src="/images/Cheminfuselogo.png"
+                        src={"/images/Cheminfuselogo.png"}
                         width={200}
                         height={200}
                         alt="Cheminfuse logo"
@@ -53,7 +53,7 @@ const Navibar = () => {
                     : "fixed left-[-200%] top-0 p-10 ease-in duration-200 shadow-l shadow-xl shadow-black"}>
 
                     <div className="flex w-full items-center justify-between">
-                        <Image src="/images/Cheminfuselogo.png" width={200} height={200} alt="" />
+                        <Image src={"/images/Cheminfuselogo.png"} width={200} height={200} alt="" />
                         <div onClick={handleNav} className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer">
                             <AiOutlineClose />
                         </div>
