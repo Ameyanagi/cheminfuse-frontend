@@ -1,0 +1,317 @@
+---
+title: "パワポ作成を自動化してみた PPTempライブラリの紹介"
+subtitle: "パワーポイント自動化ツールのご紹介"
+date: "2023-2-20"
+eyecatch: "/images/eyecatch/pptemp.png"
+tags:
+  - "PowerPoint"
+  - "Python"
+  - "自動化"
+  - "ライブラリ"
+  - "仕事効率化"
+---
+
+この記事は[Qitta](https://qiita.com/Ameyanagi/items/d4e06b5e34eb65108957)にて公開したものです。
+
+# 単純作業は苦痛？？
+みなさんは、パワーポイントでスライドを作成するとき、大量の画像や表を貼り付けるときにどのようにしていますか？
+例えば、月次報告資料のグラフや表、実験データの解析結果など、結果が画像として出力されてくるものは他の人に説明するときに、パワーポイントに貼り付けることが多いと思います。
+
+１年ほど前まで私は手動でがんばって貼り付けていましたが、意外と手間がかかる上に、ちょっとしたデータの更新があった場合には同じ作業を繰り返す必要があり、私はこの上なく苦痛に感じていました。
+
+特にデータが少ししか変わっていないのに、**「なぜ報告資料のためだけに、こんなに時間をかけなければならないのか」**と思うことが多々ありました。
+
+なんとかこの苦行から脱出するべく、画像や表をスライドに簡単に貼り付けることができる方法がないか考え、PPTempというライブラリを作成しましたので、みなさんに紹介したいと思います。
+
+# 簡単なご紹介
+
+pptempライブラリは、パワーポイントスライドへの画像や表の貼り付け作業を自動化するためのツールです。pipを通じて簡単にインストールすることができます。インストール後、スライドごとに画像や表を管理することが容易になります。画像をスライドごとに別のディレクトリに保存するだけで、自動的にパワーポイントへ貼り付けられます。
+
+このライブラリを使用することで、パワーポイントの作成作業が大幅に短縮され、効率化されます。pptempライブラリの機能と使い方について簡単に紹介します。
+
+Githubのレポジトリ：[PPTemp Github repo](https://github.com/Ameyanagi/pptemp)
+
+**簡単な使い方例**
+
+```
+# フォルダ構成
+fig
+├── 01_1枚目のスライドタイトル
+│   ├── 01_画像のラベル1-1.png
+│   └── 02_画像のラベル1-2.png
+├── 02_2枚目のスライドタイトル
+│   ├── 01_画像のラベル2-1.png
+│   └── 02_画像のラベル2-2.png
+└── 03_3枚目のスライドタイトル
+    ├── 01_画像のラベル3-1.png
+    ├── 02_画像のラベル3-2.png
+    ├── 03_画像のラベル3-3.png
+    ├── 04_画像のラベル3-4.png
+    ├── 05_画像のラベル3-5.png
+    └── 06_画像のラベル3-6.png 
+```
+
+```python
+from pptemp import pptemp
+
+# class初期化
+presentation = pptemp()
+
+# スライドごとに図を貼り付ける
+presentation.add_figure_label_slide()
+
+# スライドを保存
+presentation.save("test.pptx")
+```
+
+上記のようなフォルダ構成にして、四行のコードを実行するだけで、パワーポイントへ図が自動的に貼り付けられます。「スライドタイトル」と「画像のラベル」を自動的にパワーポイントへ貼り付けてくれます。「ラベルなし」や「ラベルあり」などはオプションで指定可能です。
+
+**出来上がり例：**
+![Slide1.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2984947/a2e25e04-4c82-17a2-792b-65a93c962725.png)
+![Slide2.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2984947/2504f763-a24d-c7ce-91e7-e7f27aa97010.png)
+![Slide3.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2984947/5fe700bf-8a65-553f-931f-cabad4d86dd3.png)
+
+
+# 使い方の詳細
+
+このライブラリは基本的にはpython-pptxライブラリのwrapperとなっており、比較的少ないコードで、パワーポイントへの画像や表の貼り付け作業を自動化することを目的としています。
+
+## 1. ライブラリのインストール
+
+ライブラリはpipに登録してありますので、pipコマンドを使用してインストールすることができます。
+
+```
+pip install pptemp
+```
+
+最新版が欲しい方は、Githubのレポジトリからインストールすることもできます。
+
+```
+pip install git+https://github.com/Ameyanagi/pptemp
+```
+
+## 2. ライブラリのインポート
+
+まずはライブラリをインポートします。
+
+```python
+from pptemp import pptemp
+```
+
+## 3. classの初期化
+
+次に、pptempクラスを初期化します。
+
+```python
+presentation = pptemp()
+```
+
+初期化の際に既存スライドを指定すると、既存スライドのテンプレートを引き継ぎます。デザインを変えたい場合は、pptempクラスを初期化する際に、`template`を指定してください。また、templateにスライドが既に存在する場合は、生成されるスライドは後ろに追加されていきます。
+
+```python
+presentation = pptemp(template="template.pptx")
+```
+
+## 4. スライドの追加
+
+基本的にはスライドを作成し、`presentation`に追加していくという使い方になります。
+画像を貼りたいだけの方は4.3を参照してください。
+
+### 4.1 タイトルスライドの追加
+
+タイトルスライドとコンテンツスライドを用意しています。タイトルはタイトルとサブタイトルを指定することができ、以下のように指定できます。
+
+```python
+slide = presentation.title_slide(title = "タイトル", subtitle = "サブタイトル")
+```
+
+オプション：
+
+| 引数 | 説明 | デフォルト値 |
+|:--|:--|:--|
+| title | タイトル | "Title" |
+| subtitle | サブタイトル | "Name" |
+| align | タイトルの位置 | "center" |
+| vertical | タイトルの位置 | "middle" |
+| font_name | フォント名 | "Meiryo" |
+| font_size_title | タイトルのフォントサイズ | 44 |
+| font_size_subtitle | サブタイトルのフォントサイズ | 18 |
+| font_bold | フォントを太字にするか | True |
+| font_italic | フォントを斜体にするか | False |
+| font_underline | フォントに下線を引くか | False |
+| font_color | フォントの色 | "black" |
+
+### 4.2 コンテンツスライドの追加
+
+コンテンツスライドは、タイトルとコンテンツを指定することができ、以下のように指定できます。
+コンテンツスライドはスライドタイトルだけの白紙のスライドを作成します。
+
+```python
+slide = presentation.content_slide(title = "スライドタイトル")
+```
+
+オプション：
+
+| 引数 | 説明 | デフォルト値 |
+|:--|:--|:--|
+| title | スライドタイトル | "Title" |
+| use_bar | タイトルの下に線を引くか | True |
+| align | タイトルの位置 | "left" |
+| vertical | タイトルの位置 | "top" |
+| font_name | フォント名 | "Meiryo" |
+| font_size | フォントサイズ | 30 |
+| font_bold | フォントを太字にするか | True |
+| font_italic | フォントを斜体にするか | False |
+| font_underline | フォントに下線を引くか | False |
+| font_color | フォントの色 | "black" |
+
+### 4.3 スライドと画像を自動的に追加
+
+一番簡単な使い方は、スライドと画像を自動的に追加する方法です。以下のように指定することで、スライドと画像を自動的に追加することができます。
+基本的にはデフォルトの状態で、サイズなどを自動調整してスライドを貼るようにしています。
+
+```python
+presentation.add_figure_label_slide(dir_path = "./fig/*/", img_path = "*.png")
+```
+
+オプション：
+
+| 引数 | 説明 | デフォルト値 |
+|:--|:--|:--|
+| dir_path | 画像が入っているディレクトリのパス | "./fig/*/" |
+| img_path | 画像のパス | "*.png" |
+| left | 画像を貼り始めるの左端の位置(% vsスライド) | 0 |
+| top | 画像を貼り始めるの上端の位置(% vsスライド) | 12 |
+| width | 画像の幅(% vsスライド) | 100 |
+| height | 画像の高さ(% vsスライド) | 88 |
+| file_regex | 画像のファイル名からラベルを取得するための正規表現 | re.compile(r".*[_/\\](.*)\.[a-zA-Z]+") |
+| dir_regex | 画像のディレクトリ名からラベルを取得するための正規表現 | re.compile(r".*[_/\\](.*)[/\\]") |
+| use_label | ラベルを使用するか | True |
+| use_bar | タイトルの下に線を引くか | True |
+| label_position | ラベルの位置 | "top" |
+| title_font_size | タイトルのフォントサイズ | 30 |
+| label_font_size | ラベルのフォントサイズ | 18 |
+
+## 5. スライドの編集
+
+### 5.1 テキストの追加
+
+4で作成したスライドに対して、テキストを追加することができます。
+
+```python
+slide = presentation.add_textbox(slide, text = "テキスト")
+```
+
+オプション：
+
+| 引数 | 説明 | デフォルト値 |
+|:--|:--|:--|
+| slide | スライドオブジェクト | None |
+| text | テキスト | "" |
+| left | テキストを貼り始めるの左端の位置(% vsスライド) | 0 |
+| top | テキストを貼り始めるの上端の位置(% vsスライド) | 0 |
+| width | テキストの幅(% vsスライド) | 20 |
+| height | テキストの高さ(% vsスライド) | 5 |
+| align | テキストの位置 | "center" |
+| vertical | テキストの位置 | "middle" |
+| font_name | フォント名 | "Meiryo" |
+| font_size | フォントサイズ | 18 |
+| font_bold | フォントを太字にするか | False |
+| font_italic | フォントを斜体にするか | False |
+| font_underline | フォントに下線を引くか | False |
+| font_color | フォントの色 | "black" |
+
+### 5.2 画像の追加
+
+4で作成したスライドに対して、画像を追加することができます。
+
+```python
+slide = presentation.add_picture(slide, path = "./fig/fig1.png")
+```
+
+オプション：
+
+| 引数 | 説明 | デフォルト値 |
+|:--|:--|:--|
+| slide | スライドオブジェクト | None |
+| path | 画像のパス | "" |
+| left | 画像を貼り始めるの左端の位置(% vsスライド) | 0 |
+| top | 画像を貼り始めるの上端の位置(% vsスライド) | 0 |
+| width | 画像の幅(% vsスライド) | 50 |
+| height | 画像の高さ(% vsスライド) | 50 |
+
+### 5.3 ラベル付き画像の追加
+
+4で作成したスライドに対して、ラベル付き画像を追加することができます。
+
+```python
+slide = presentation.add_picture_label(slide, path = "./fig/fig1.png", label = "ラベル")
+```
+
+オプション：
+
+| 引数 | 説明 | デフォルト値 |
+|:--|:--|:--|
+| slide | スライドオブジェクト | None |
+| path | 画像のパス | "" |
+| left | 画像を貼り始めるの左端の位置(% vsスライド) | 0 |
+| top | 画像を貼り始めるの上端の位置(% vsスライド) | 0 |
+| width | 画像の幅(% vsスライド) | 50 |
+| height | 画像の高さ(% vsスライド) | 50 |
+| label | ラベル | "" |
+| label_position | ラベルの位置 | "top" |
+| label_height | ラベルの高さ(% vsスライド) | 5 |   
+| align | ラベルの位置 | "center" |
+| vertical | ラベルの位置 | "middle" |
+| font_name | ラベルのフォント名 | "Meiryo" |
+| font_size | ラベルのフォントサイズ | 18 |
+| font_bold | ラベルのフォントを太字にするか | False |
+| font_italic | ラベルのフォントを斜体にするか | False |
+| font_underline | ラベルのフォントに下線を引くか | True |
+| font_color | ラベルのフォントの色 | "black" |
+
+
+### 5.4 テーブルの追加
+
+4で作成したスライドに対して、pandasデータフレームからテーブルを追加することができます。
+
+```python
+slide = presentation.add_table_from_df(slide, df = df, left = 0, top = 12, width = 100, height = 88)
+```
+
+オプション：
+
+| 引数 | 説明 | デフォルト値 |
+|:--|:--|:--|
+| slide | スライドオブジェクト | None |
+| df | データフレーム | None |
+| left | テーブルを貼り始めるの左端の位置(% vsスライド) | 0 |
+| top | テーブルを貼り始めるの上端の位置(% vsスライド) | 0 |
+| width | テーブルの幅(% vsスライド) | 100 |
+| height | テーブルの高さ(% vsスライド) | 100 |
+| colnames | テーブルの列名 | None |
+| align | テーブルの位置 | "center" |
+| vertical | テーブルの位置 | "middle" |
+| font_name | テーブルのフォント名 | "Meiryo" |
+| font_size | テーブルのフォントサイズ | 18 |
+| font_bold | テーブルのフォントを太字にするか | False |
+| font_italic | テーブルのフォントを斜体にするか | False |
+| font_underline | テーブルのフォントに下線を引くか | False |
+| font_color | テーブルのフォントの色 | "black" |
+
+
+## 6. スライドの保存
+
+最後にスライドを保存するには`save`メソッドを使用します。
+
+```python
+presentation.save(path = "./output.pptx")
+```
+
+# まとめ
+
+今回はPythonでPowerPointを操作する方法を紹介しました。
+PowerPointを操作することで、自動化したレポートの作成や、プレゼンテーションの作成が可能になります。
+私はコードの最後に、このライブラリを読み込ませることでレポートの自動作成を行なっています。
+
+ぜひみなさんも使ってみてください。
