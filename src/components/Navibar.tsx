@@ -24,7 +24,7 @@ const Navibar = () => {
             <div className="flex justify-between items-center w-full h-full px-2 2xl:px-16">
                 <Link href="/">
                     <Image
-                        src="/Cheminfuse logo.png"
+                        src="/Cheminfuselogo.png"
                         width={200}
                         height={200}
                         alt="Cheminfuse logo"
