@@ -1,3 +1,7 @@
+"use client";
+
+import { GoogleAnalytics } from "nextjs-google-analytics";
+
 export default function Head() {
   return (
     <>
@@ -6,6 +10,7 @@ export default function Head() {
       <meta content="width=device-width, initial-scale=1" name="viewport" />
       <meta name="robots" content="max-image-preview:large" />
       <link rel="icon" href="/favicon.png" />
+      <GoogleAnalytics gaMeasurementId="G-7S2Z0M4PQH" />
     </>
   );
 };

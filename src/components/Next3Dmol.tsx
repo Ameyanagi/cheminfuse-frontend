@@ -29,6 +29,14 @@ const Next3Dmol = ({ className, structure, format, href }: Next3DmolProps) => {
 
     useEffect(() => {
 
+        if (!structureString) {
+            return;
+        }
+
+        if (!formatString) {
+            return;
+        }
+
         import('3dmol/build/3Dmol.js').then($3Dmol => {
             let element = $('#' + next3DmolId);
             element.empty();
