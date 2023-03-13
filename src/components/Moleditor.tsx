@@ -35,7 +35,7 @@ function Editor() {
           </div>
           <div className='p-4'>
           <Jsme height="50vh" width="100%" options="oldlook,star" onChange={handleSmiles} />
-            <form action="/torchaniapi/gen_conf_csv" method='POST'>
+            <form action="torchaniapi/gen_conf_csv" method='POST'>
               <div className='flex flex-col'>
                     <label className='uppercase text-sm py-2'>SMILES</label>
                     <input
