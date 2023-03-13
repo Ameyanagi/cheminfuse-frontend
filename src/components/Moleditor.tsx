@@ -55,7 +55,7 @@ function Editor() {
               </button>
             </form>
           </div>
-          <div className="pb-10 text-xl">
+          <div className="py-10 text-xl">
             Disclaimer: <br />
             This tool is currently under development. <br />
             Current setting will perform generation of 4000 random conformers, mmff94 energy minimization, clustering (10 groups at maximum), and then energy minimization using torchani ANI-1ccx, or ANI-2x depending on the elements. <br />
@@ -63,7 +63,7 @@ function Editor() {
             Elements supported for ANI-2x: H, C, N, O, S, F, Cl. <br />
             Charges are not supported.
           </div>
-          <div className="pb-10 text-xl">
+          <div className="text-xl">
             Blog post explaining the tool: I am working on it.
           </div>
         </div>
