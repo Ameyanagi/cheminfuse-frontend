@@ -1,0 +1,93 @@
+# Skillまとめ
+
+## 化学に関連したスキル
+
+論文数：13件(First Author: XX件)
+特許出願：数えてないですが、5-8件ぐらい？
+
+Analytical Skill (Proficiency): X-ray absorption Spectroscopy, (VT-)NMR, GC(-MS), LC, FT-IR, UV-vis, single crystal X-ray diffraction study, elemental analysis, SEM-EDS.
+
+Analytical Skill (Have experience):XPS, powder XRD, BET analysis, ICP-OES, and CP-MAS NMR.
+
+Computational Skill (Proficiency): (TD-)DFT calculation (Mainly Gaussian), Theoretical XAS calculation (FEFF, FDMNES), Supercomputer (TSUBAME in Tokyo Institute of Technology, Seawolf Cluster in Stonybrook University)
+
+Experimental Skill: Catalyst synthesis, organic synthesis, organometallic synthesis (Schlenk technique, Glove box technique), high pressure batch reaction (~15 MPaG), high pressure flow reaction (~9 MPaG), electronic work, lab automation
+
+Other: Baysian Optimization, Glass blowing
+
+
+## コンピュータ関係
+
+主なプログラミング言語:Python(研究開発において使用、1年ほど日常的に実務で使用は), JavaScript(主にwebアプリ開発に利用)
+
+- Python: 使用歴16年、日常的に利用するようになったのはここ1年。研究開発においては、HPCでの数値計算インターフェース、SQL DBとのインターフェス、データ分析、機械学習、webアプリ開発に利用。機械学習においては、scikit-learn, pytorchなどを利用。webアプリ開発においては、Fast APIおよびstreamlitによる簡便なアプリ開発に利用。
+
+- Javascript: 使用歴半年。Python環境を実行できない人のために、webアプリ化するために利用。主にReactとNext.jsを利用。Next.jsを利用する時はTypeScriptを利用。
+
+- HTTP/CSS: 使用歴16年、日常的には利用せず、webアプリ開発をするときだけ利用。以前はXHTML/CSS2を利用していたが、最近はリスポンシブ対応にするためHTML5/CSS3 + Tailwind CSSを利用することが多い。
+
+- SQL: 使用歴16年、開発歴2ヶ月。データ量が多くなったので、SQL DBにデータを保存するため利用。主にPostgreSQLを利用。
+
+- Docker: 使用歴2年、開発環境構築およびバックエンドサーバの構築に利用。dockerアプリの開発は未経験。
+
+- KVM: 使用歴6年、dockerがあるので使用するのをやめました。
+
+- Linux/Unix: 使用歴17年、中学生の時から継続的にサーバを運用。最初のlinuxはVine Linux、その後CentOS5-8、FreeBSD8, openSUSE11-13,Ubuntu14-22と色々使ってきて、現在はUbuntu22.04に落ち着いている。開発環境はM1 Macを利用している。
+
+- Git: 使用歴1年、研究室でのコードシェアリング、バージョン管理に利用。オープンソースコミュニティへのコミットに利用している。
+
+- LaTeX: 2009年-2014年ごろまで利用。最近はMarkdownで事足りているので、利用していない。
+
+- C/C++: 2006-2009年ごろまで利用。C++で実行時間減らすより、開発時間を減らすほうが効率が良いことが多いので最近はほとんど書くことがない。2021年ごろからArduinoの開発をするときだけC++を利用。
+化学計算用のプログラムをインストールする際は毎回全てのコードをコンパイルしている。
+
+- Fortran: 2009年ごろに利用していたが、今では化学計算用のプログラムをインストールする際にコンパイルすること、デバッグする時にしか利用しない。
+
+- Bash: Linuxの標準スクリプトであるため、17年来の付き合いであるが、シェルスクリプトはあまり書かない。（pythonなどの他の言語で書く）
+
+- Perl: 2004-2006年ごろまでに掲示板CGIスクリプトとして利用。DemeterというEXAFS分析用のソフトウェアに利用されており、デバッグするときに利用する。他の人が使っていない限りは使わない。
+
+- PHP: 2006年-2009年ごろまでにSNSのバックエンドとして利用していた。機能追加などの簡単な開発を行なっていたが、最近は利用していない。
+
+- Go言語: 開発歴1年、バックエンドサーバもしくは軽量なツールを作りたい時に利用。
+
+- Julia: 開発歴半年、研究開発においてpythonよりも高速に計算したい時に利用。並列化、ベクトルが容易なので、C/C++コードを書くのがめんどくさい時に利用。
+
+- VBA: 開発歴5年、会社のPCにデフォルトで入っている開発環境。主にエクセルの自動化マクロにしか利用しない。
+
+- PowerShell: 会社のPCにデフォルトで入ってる開発環境。pythonが実行できない人のために、スクリプトを作るときに利用。あまり利用しない。
+
+- NodeRed+raspberry pi: 開発歴2年。実験機器の制御に利用。シリアルポートでの通信、webアプリ化、データベースへの保存、データの可視化などが簡便に実装できるので、化学実験とはかなり相性が良い。
+
+- スパコン/Cluster: 利用歴13年、大学にみんなのスパコンTSUBAMEというものがあったので、大学１年から利用させてもらってた。会社へ計算サーバを導入する際した際も、TSUBAMEと同等のジョブスケジューリングやmoduleの設定など実施した。（ベンダーが対応を渋ったので、自前で実施。）コンパイラ、MPIライブラリ、数値計算ライブラリ周りがかなり複雑なので、大学のスパコンはよく設計されているなと感心した。
+
+- サーバ運用：2005-2007年までレンタルサーバを運用（HTTP, FTP）、2007年-2009年までSNSを運用（HTTPS, PHP, MySQL, SMTP）、以降は個人用途で自宅サーバを運用（HTTP, HTTPS, SSH, VPN, Samba, その他自作自動スクリプトなど)　今思うとHTTP + FTPでサーバ運用とか怖い時代もあったものですね。
+
+ということで、ファーストチョイスはPython、webアプリはjavascript、他は状況に応じて利用する。
+
+
+## 資格
+
+自動車免許
+危険物甲種
+高圧ガス製造保安責任者甲種化学
+第一種衛生管理者
+
+## 言語
+
+日本語：母国語
+英語：ビジネスレベル
+
+## 海外経験
+
+1997年-2001年 フロリダ、米国
+2018年-2019年   シンガポール
+                Institute of Chemical and Engineering Sciences (ICES)
+2022-2024年    ニューヨーク、米国
+                Stonybrook University 客員研究員
+                Brookhaven National Laboratory 客員研究員
+
+## 職務経歴
+
+
+

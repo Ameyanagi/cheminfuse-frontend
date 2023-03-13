@@ -19,6 +19,7 @@
     "github-markdown-css": "^5.2.0",
     "gray-matter": "^4.0.3",
     "jquery": "^3.6.3",
+    "jsme-react": "^0.0.9",
     "markdown-to-jsx": "^7.1.9",
     "next": "13.1.6",
     "nextjs-google-analytics": "^2.3.0",
