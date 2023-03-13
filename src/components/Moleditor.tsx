@@ -30,7 +30,7 @@ function Editor() {
             Structure Optimization using NN potential
           </p>
 
-          <div className="pb-10 text-xl">
+          <div className="text-xl">
             How to use: <br />
             1. Draw your molecule in the editor or enter SMILES in the textbox. <br />
             2. Press "Submit Structure". <br />
