@@ -34,7 +34,7 @@ function Editor() {
             How to use: <br />
             1. Draw your molecule in the editor or enter SMILES in the textbox. <br />
             2. Press "Submit Structure". <br />
-            3. Wait for the results to be generated. This might take few minutes. <br />
+            3. Wait for the results to be generated. This might take few minutes. (It might take ~10min for large molecule) <br />
             4. csv file containing the optimized structures will be downloaded. <br />
           </div>
           <div className='p-4'>

@@ -23,7 +23,7 @@ const ToolsPage = () => {
                             <div className="relative flex items-center justify-center h-[300px] w-[300px] shadow-xl shadow-gray-400 rounded-xl group bg-gradient-to-r from-[#548DFF] to-[#548DFF99] mx-auto">
                                 <Link href="/tools/structure_optimization">
                                     <Image
-                                        src="/images/Chemical-industry.png"
+                                        src="/images/eyecatch/structure_optimization.png"
                                         width={300}
                                         height={300}
                                         className="rounded-xl opacity-20 group-hover:opacity-5 object-fill"
