@@ -1,6 +1,7 @@
 // "use client";
 import React, { useState } from "react";
 import { Jsme } from "jsme-react";
+import Link from "next/link";
 // import { useForm } from "react-hook-form";
 
 function Editor() {
@@ -29,13 +30,14 @@ function Editor() {
           <p className="text-xl tracking widget uppercase text-[#5651e5] py-4">
             Structure Optimization using NN potential
           </p>
-
+          
           <div className="text-xl">
             How to use: <br />
             1. Draw your molecule in the editor or enter SMILES in the textbox. <br />
             2. Press "Submit Structure". <br />
             3. Wait for the results to be generated. This might take few minutes. (It might take ~10min for large molecule) <br />
             4. csv file containing the optimized structures will be downloaded. <br />
+            5. Upload the csv file to <Link href="/tools/structure_visualization" className="text-[#5651e5] hover:cursor-pointer hover:border-b">Structure Visualization</Link> page. <br />
           </div>
           <div className='p-4'>
             <Jsme height="50vh" width="100%" options="oldlook,star" onChange={handleSmiles} />

@@ -23,9 +23,12 @@ const Next3Dmol = ({ className, structure, format, href }: Next3DmolProps) => {
             fetch(href).then(response => response.text()).then(data => {
                 setStructureString(data);
             });
+        } else {
+            setStructureString(structure);
+            setFormatString(format);
         }
 
-    }, [href, format]);
+    }, [href, format, structure, format]);
 
     useEffect(() => {
 
@@ -45,7 +48,7 @@ const Next3Dmol = ({ className, structure, format, href }: Next3DmolProps) => {
             viewer.addModel(structureString, formatString);
             switch (formatString) {
                 case 'xyz':
-                    viewer.setStyle({}, { sphere: {} });
+                    viewer.setStyle({}, { stick: {} });
                     break;
                 case 'pdb':
                     viewer.setStyle({}, { cartoon: {} });

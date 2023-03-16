@@ -29,10 +29,24 @@ const ToolsPage = () => {
                                         className="rounded-xl opacity-20 group-hover:opacity-5 object-fill"
                                         alt="Structure Optimization"
                                     />
-
                                     <div className="absolute w-[80%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
                                         <h3 className='text-2xl text-white traking-wider text-center py-5'>Structure Optimization using NN potential</h3>
                                         <p className='pb-2 pt-2 text-white text-center'>ニューラルネットワークポテンシャルを利用した構造最適化 Webアプリ</p>
+                                    </div>
+                                </Link>
+                            </div>
+                            <div className="relative flex items-center justify-center h-[300px] w-[300px] shadow-xl shadow-gray-400 rounded-xl group bg-gradient-to-r from-[#548DFF] to-[#548DFF99] mx-auto">
+                                <Link href="/tools/structure_visualization">
+                                    <Image
+                                        src="/images/eyecatch/structure_optimization.png"
+                                        width={300}
+                                        height={300}
+                                        className="rounded-xl opacity-20 group-hover:opacity-5 object-fill"
+                                        alt="Structure Visualization"
+                                    />
+                                    <div className="absolute w-[80%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]">
+                                        <h3 className='text-2xl text-white traking-wider text-center py-5'>Structure Visualization Tool</h3>
+                                        <p className='pb-2 pt-2 text-white text-center'>構造最適化 Webアプリで出力したデータの可視化ツール</p>
                                     </div>
                                 </Link>
                             </div>
