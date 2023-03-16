@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Jsme } from "jsme-react";
 import Link from "next/link";
-// import { useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 
 function Editor() {
 
@@ -20,6 +20,10 @@ function Editor() {
   const handleSmilesInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSmiles(e.target.value)
   };
+
+  const { register, handleSubmit, formState } = useForm({
+    mode: "onChange"
+  });
 
   return (
     <div className="w-full text-left">
@@ -49,10 +53,10 @@ function Editor() {
                   type='text'
                   name='smiles'
                   value={smiles}
-                  onChange={handleSmilesInput}
+                  onChange={handleSmilesInput}                  
                 />
               </div>
-              <button className='w-full p-4 text-gray-100 mt-4'>
+              <button className='w-full p-4 text-gray-100 mt-4' disabled={formState.isSubmitting}>
                 Submit Structure
               </button>
             </form>
