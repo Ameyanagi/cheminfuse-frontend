@@ -1,13 +1,12 @@
-import Contact from '@/components/contact';
+import Contact from "@/components/contact";
 
 const ContactPage = () => {
-
-
-    return (
-        <div className="w-full p-10">
-            <Contact />
-        </div>
-    );
+  return (
+    <div className="w-full p-10">
+      <Contact />
+    </div>
+  );
 };
 
 export default ContactPage;
+
