@@ -14,6 +14,7 @@ tags:
 この記事は[Qitta](https://qiita.com/Ameyanagi/items/d4e06b5e34eb65108957)にて公開したものです。
 
 # 単純作業は苦痛？？
+
 みなさんは、パワーポイントでスライドを作成するとき、大量の画像や表を貼り付けるときにどのようにしていますか？
 例えば、月次報告資料のグラフや表、実験データの解析結果など、結果が画像として出力されてくるものは他の人に説明するときに、パワーポイントに貼り付けることが多いと思います。
 
@@ -48,7 +49,7 @@ fig
     ├── 03_画像のラベル3-3.png
     ├── 04_画像のラベル3-4.png
     ├── 05_画像のラベル3-5.png
-    └── 06_画像のラベル3-6.png 
+    └── 06_画像のラベル3-6.png
 ```
 
 ```python
@@ -70,7 +71,6 @@ presentation.save("test.pptx")
 ![Slide1.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2984947/a2e25e04-4c82-17a2-792b-65a93c962725.png)
 ![Slide2.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2984947/2504f763-a24d-c7ce-91e7-e7f27aa97010.png)
 ![Slide3.png](https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/2984947/5fe700bf-8a65-553f-931f-cabad4d86dd3.png)
-
 
 # 使い方の詳細
 
@@ -127,19 +127,19 @@ slide = presentation.title_slide(title = "タイトル", subtitle = "サブタ�
 
 オプション：
 
-| 引数 | 説明 | デフォルト値 |
-|:--|:--|:--|
-| title | タイトル | "Title" |
-| subtitle | サブタイトル | "Name" |
-| align | タイトルの位置 | "center" |
-| vertical | タイトルの位置 | "middle" |
-| font_name | フォント名 | "Meiryo" |
-| font_size_title | タイトルのフォントサイズ | 44 |
-| font_size_subtitle | サブタイトルのフォントサイズ | 18 |
-| font_bold | フォントを太字にするか | True |
-| font_italic | フォントを斜体にするか | False |
-| font_underline | フォントに下線を引くか | False |
-| font_color | フォントの色 | "black" |
+| 引数               | 説明                         | デフォルト値 |
+| :----------------- | :--------------------------- | :----------- |
+| title              | タイトル                     | "Title"      |
+| subtitle           | サブタイトル                 | "Name"       |
+| align              | タイトルの位置               | "center"     |
+| vertical           | タイトルの位置               | "middle"     |
+| font_name          | フォント名                   | "Meiryo"     |
+| font_size_title    | タイトルのフォントサイズ     | 44           |
+| font_size_subtitle | サブタイトルのフォントサイズ | 18           |
+| font_bold          | フォントを太字にするか       | True         |
+| font_italic        | フォントを斜体にするか       | False        |
+| font_underline     | フォントに下線を引くか       | False        |
+| font_color         | フォントの色                 | "black"      |
 
 ### 4.2 コンテンツスライドの追加
 
@@ -152,18 +152,18 @@ slide = presentation.content_slide(title = "スライドタイトル")
 
 オプション：
 
-| 引数 | 説明 | デフォルト値 |
-|:--|:--|:--|
-| title | スライドタイトル | "Title" |
-| use_bar | タイトルの下に線を引くか | True |
-| align | タイトルの位置 | "left" |
-| vertical | タイトルの位置 | "top" |
-| font_name | フォント名 | "Meiryo" |
-| font_size | フォントサイズ | 30 |
-| font_bold | フォントを太字にするか | True |
-| font_italic | フォントを斜体にするか | False |
-| font_underline | フォントに下線を引くか | False |
-| font_color | フォントの色 | "black" |
+| 引数           | 説明                     | デフォルト値 |
+| :------------- | :----------------------- | :----------- |
+| title          | スライドタイトル         | "Title"      |
+| use_bar        | タイトルの下に線を引くか | True         |
+| align          | タイトルの位置           | "left"       |
+| vertical       | タイトルの位置           | "top"        |
+| font_name      | フォント名               | "Meiryo"     |
+| font_size      | フォントサイズ           | 30           |
+| font_bold      | フォントを太字にするか   | True         |
+| font_italic    | フォントを斜体にするか   | False        |
+| font_underline | フォントに下線を引くか   | False        |
+| font_color     | フォントの色             | "black"      |
 
 ### 4.3 スライドと画像を自動的に追加
 
@@ -176,21 +176,21 @@ presentation.add_figure_label_slide(dir_path = "./fig/*/", img_path = "*.png")
 
 オプション：
 
-| 引数 | 説明 | デフォルト値 |
-|:--|:--|:--|
-| dir_path | 画像が入っているディレクトリのパス | "./fig/*/" |
-| img_path | 画像のパス | "*.png" |
-| left | 画像を貼り始めるの左端の位置(% vsスライド) | 0 |
-| top | 画像を貼り始めるの上端の位置(% vsスライド) | 12 |
-| width | 画像の幅(% vsスライド) | 100 |
-| height | 画像の高さ(% vsスライド) | 88 |
-| file_regex | 画像のファイル名からラベルを取得するための正規表現 | re.compile(r".*[_/\\](.*)\.[a-zA-Z]+") |
-| dir_regex | 画像のディレクトリ名からラベルを取得するための正規表現 | re.compile(r".*[_/\\](.*)[/\\]") |
-| use_label | ラベルを使用するか | True |
-| use_bar | タイトルの下に線を引くか | True |
-| label_position | ラベルの位置 | "top" |
-| title_font_size | タイトルのフォントサイズ | 30 |
-| label_font_size | ラベルのフォントサイズ | 18 |
+| 引数            | 説明                                                   | デフォルト値                           |
+| :-------------- | :----------------------------------------------------- | :------------------------------------- |
+| dir_path        | 画像が入っているディレクトリのパス                     | "./fig/\*/"                            |
+| img_path        | 画像のパス                                             | "\*.png"                               |
+| left            | 画像を貼り始めるの左端の位置(% vsスライド)             | 0                                      |
+| top             | 画像を貼り始めるの上端の位置(% vsスライド)             | 12                                     |
+| width           | 画像の幅(% vsスライド)                                 | 100                                    |
+| height          | 画像の高さ(% vsスライド)                               | 88                                     |
+| file_regex      | 画像のファイル名からラベルを取得するための正規表現     | re.compile(r"._[_/\\](._)\.[a-zA-Z]+") |
+| dir_regex       | 画像のディレクトリ名からラベルを取得するための正規表現 | re.compile(r"._[_/\\](._)[/\\]")       |
+| use_label       | ラベルを使用するか                                     | True                                   |
+| use_bar         | タイトルの下に線を引くか                               | True                                   |
+| label_position  | ラベルの位置                                           | "top"                                  |
+| title_font_size | タイトルのフォントサイズ                               | 30                                     |
+| label_font_size | ラベルのフォントサイズ                                 | 18                                     |
 
 ## 5. スライドの編集
 
@@ -204,22 +204,22 @@ slide = presentation.add_textbox(slide, text = "テキスト")
 
 オプション：
 
-| 引数 | 説明 | デフォルト値 |
-|:--|:--|:--|
-| slide | スライドオブジェクト | None |
-| text | テキスト | "" |
-| left | テキストを貼り始めるの左端の位置(% vsスライド) | 0 |
-| top | テキストを貼り始めるの上端の位置(% vsスライド) | 0 |
-| width | テキストの幅(% vsスライド) | 20 |
-| height | テキストの高さ(% vsスライド) | 5 |
-| align | テキストの位置 | "center" |
-| vertical | テキストの位置 | "middle" |
-| font_name | フォント名 | "Meiryo" |
-| font_size | フォントサイズ | 18 |
-| font_bold | フォントを太字にするか | False |
-| font_italic | フォントを斜体にするか | False |
-| font_underline | フォントに下線を引くか | False |
-| font_color | フォントの色 | "black" |
+| 引数           | 説明                                           | デフォルト値 |
+| :------------- | :--------------------------------------------- | :----------- |
+| slide          | スライドオブジェクト                           | None         |
+| text           | テキスト                                       | ""           |
+| left           | テキストを貼り始めるの左端の位置(% vsスライド) | 0            |
+| top            | テキストを貼り始めるの上端の位置(% vsスライド) | 0            |
+| width          | テキストの幅(% vsスライド)                     | 20           |
+| height         | テキストの高さ(% vsスライド)                   | 5            |
+| align          | テキストの位置                                 | "center"     |
+| vertical       | テキストの位置                                 | "middle"     |
+| font_name      | フォント名                                     | "Meiryo"     |
+| font_size      | フォントサイズ                                 | 18           |
+| font_bold      | フォントを太字にするか                         | False        |
+| font_italic    | フォントを斜体にするか                         | False        |
+| font_underline | フォントに下線を引くか                         | False        |
+| font_color     | フォントの色                                   | "black"      |
 
 ### 5.2 画像の追加
 
@@ -231,14 +231,14 @@ slide = presentation.add_picture(slide, path = "./fig/fig1.png")
 
 オプション：
 
-| 引数 | 説明 | デフォルト値 |
-|:--|:--|:--|
-| slide | スライドオブジェクト | None |
-| path | 画像のパス | "" |
-| left | 画像を貼り始めるの左端の位置(% vsスライド) | 0 |
-| top | 画像を貼り始めるの上端の位置(% vsスライド) | 0 |
-| width | 画像の幅(% vsスライド) | 50 |
-| height | 画像の高さ(% vsスライド) | 50 |
+| 引数   | 説明                                       | デフォルト値 |
+| :----- | :----------------------------------------- | :----------- |
+| slide  | スライドオブジェクト                       | None         |
+| path   | 画像のパス                                 | ""           |
+| left   | 画像を貼り始めるの左端の位置(% vsスライド) | 0            |
+| top    | 画像を貼り始めるの上端の位置(% vsスライド) | 0            |
+| width  | 画像の幅(% vsスライド)                     | 50           |
+| height | 画像の高さ(% vsスライド)                   | 50           |
 
 ### 5.3 ラベル付き画像の追加
 
@@ -250,26 +250,25 @@ slide = presentation.add_picture_label(slide, path = "./fig/fig1.png", label = "
 
 オプション：
 
-| 引数 | 説明 | デフォルト値 |
-|:--|:--|:--|
-| slide | スライドオブジェクト | None |
-| path | 画像のパス | "" |
-| left | 画像を貼り始めるの左端の位置(% vsスライド) | 0 |
-| top | 画像を貼り始めるの上端の位置(% vsスライド) | 0 |
-| width | 画像の幅(% vsスライド) | 50 |
-| height | 画像の高さ(% vsスライド) | 50 |
-| label | ラベル | "" |
-| label_position | ラベルの位置 | "top" |
-| label_height | ラベルの高さ(% vsスライド) | 5 |   
-| align | ラベルの位置 | "center" |
-| vertical | ラベルの位置 | "middle" |
-| font_name | ラベルのフォント名 | "Meiryo" |
-| font_size | ラベルのフォントサイズ | 18 |
-| font_bold | ラベルのフォントを太字にするか | False |
-| font_italic | ラベルのフォントを斜体にするか | False |
-| font_underline | ラベルのフォントに下線を引くか | True |
-| font_color | ラベルのフォントの色 | "black" |
-
+| 引数           | 説明                                       | デフォルト値 |
+| :------------- | :----------------------------------------- | :----------- |
+| slide          | スライドオブジェクト                       | None         |
+| path           | 画像のパス                                 | ""           |
+| left           | 画像を貼り始めるの左端の位置(% vsスライド) | 0            |
+| top            | 画像を貼り始めるの上端の位置(% vsスライド) | 0            |
+| width          | 画像の幅(% vsスライド)                     | 50           |
+| height         | 画像の高さ(% vsスライド)                   | 50           |
+| label          | ラベル                                     | ""           |
+| label_position | ラベルの位置                               | "top"        |
+| label_height   | ラベルの高さ(% vsスライド)                 | 5            |
+| align          | ラベルの位置                               | "center"     |
+| vertical       | ラベルの位置                               | "middle"     |
+| font_name      | ラベルのフォント名                         | "Meiryo"     |
+| font_size      | ラベルのフォントサイズ                     | 18           |
+| font_bold      | ラベルのフォントを太字にするか             | False        |
+| font_italic    | ラベルのフォントを斜体にするか             | False        |
+| font_underline | ラベルのフォントに下線を引くか             | True         |
+| font_color     | ラベルのフォントの色                       | "black"      |
 
 ### 5.4 テーブルの追加
 
@@ -281,24 +280,23 @@ slide = presentation.add_table_from_df(slide, df = df, left = 0, top = 12, width
 
 オプション：
 
-| 引数 | 説明 | デフォルト値 |
-|:--|:--|:--|
-| slide | スライドオブジェクト | None |
-| df | データフレーム | None |
-| left | テーブルを貼り始めるの左端の位置(% vsスライド) | 0 |
-| top | テーブルを貼り始めるの上端の位置(% vsスライド) | 0 |
-| width | テーブルの幅(% vsスライド) | 100 |
-| height | テーブルの高さ(% vsスライド) | 100 |
-| colnames | テーブルの列名 | None |
-| align | テーブルの位置 | "center" |
-| vertical | テーブルの位置 | "middle" |
-| font_name | テーブルのフォント名 | "Meiryo" |
-| font_size | テーブルのフォントサイズ | 18 |
-| font_bold | テーブルのフォントを太字にするか | False |
-| font_italic | テーブルのフォントを斜体にするか | False |
-| font_underline | テーブルのフォントに下線を引くか | False |
-| font_color | テーブルのフォントの色 | "black" |
-
+| 引数           | 説明                                           | デフォルト値 |
+| :------------- | :--------------------------------------------- | :----------- |
+| slide          | スライドオブジェクト                           | None         |
+| df             | データフレーム                                 | None         |
+| left           | テーブルを貼り始めるの左端の位置(% vsスライド) | 0            |
+| top            | テーブルを貼り始めるの上端の位置(% vsスライド) | 0            |
+| width          | テーブルの幅(% vsスライド)                     | 100          |
+| height         | テーブルの高さ(% vsスライド)                   | 100          |
+| colnames       | テーブルの列名                                 | None         |
+| align          | テーブルの位置                                 | "center"     |
+| vertical       | テーブルの位置                                 | "middle"     |
+| font_name      | テーブルのフォント名                           | "Meiryo"     |
+| font_size      | テーブルのフォントサイズ                       | 18           |
+| font_bold      | テーブルのフォントを太字にするか               | False        |
+| font_italic    | テーブルのフォントを斜体にするか               | False        |
+| font_underline | テーブルのフォントに下線を引くか               | False        |
+| font_color     | テーブルのフォントの色                         | "black"      |
 
 ## 6. スライドの保存
 
