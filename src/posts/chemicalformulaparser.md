@@ -52,7 +52,7 @@ There is no crate available that can parse the weight percentage along with the 
 - '[Cu(H2O)6]Cl2': A formula including nested parenthesis and square brackets.
 - 'Fe2{SO4}3': Curly braces instead of parenthesis.
 - `5wt%Pt/SiO2`: A formula including weight percentage and a slash.
-- `(5wt%Pt/SiO2)50wt%(CeO2)50wt%` : A formula including nested parenthesis and weight percentage.
+- `(5wt%Pt/SiO2)50wt%(CeO2)50wt%` : A formula of a mixture including weight percentage.
 
 # Pest parser
 

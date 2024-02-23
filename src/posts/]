@@ -419,5 +419,3 @@ Rustの`match`サイコー！！
 入れ子の括弧や重量パーセンテージを含む化学式を解析できる化学式パーサーについて議論しました。また、解析されたデータを格納するために使用される`pest`ライブラリと`ChemicalFormula`構造体についても議論しました。このクレートはcrates.ioで[`chemical_formula`](https://crates.io/crates/chemical-formula)として公開され、完全なドキュメントと参照は[doc.rs](https://docs.rs/chemical-formula/latest/chemical_formula/)で利用可能です。
 
 他の言語での作業と比較して、developer experience (DX)が非常に良かったです。
-
-このCrateの初期バージョンの作成にはわずか2日しかかかりませんでした。そのスムーズさは、Rust言語およびそのエコシステムの設計とコミュニティのサポートによるものです。特に、`pest`ライブラリの使いやすさと強力な機能は、複雑なパースタスクを容易にし、開発時間を大幅に短縮しました。
