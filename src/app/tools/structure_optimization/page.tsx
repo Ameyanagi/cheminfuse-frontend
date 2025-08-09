@@ -2,7 +2,7 @@
 import dynamic from "next/dynamic";
 
 const Editor= dynamic(
-  () => import('@/components/Moleditor'), //Editor component path
+  () => import('@/components/ImprovedMolEditor'), //Editor component path
   { ssr: false }
 )
 
